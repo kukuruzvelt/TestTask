@@ -27,7 +27,6 @@ public class TestTaskApplication {
   }
 
   @GetMapping("/get-person")
-  @Transactional
   public String hello(@RequestParam(value = "id", defaultValue = "0") Integer id) {
     Optional<Person> optionalPerson = personsCrudRepository.findById(id);
     if (optionalPerson.isPresent()) {
