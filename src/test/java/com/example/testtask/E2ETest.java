@@ -23,15 +23,13 @@ public class E2ETest {
 
   @Test
   public void getUserTest() throws Exception {
-    mvc.perform(get("/get-person?id=1")
-            .contentType(MediaType.APPLICATION_JSON))
+    mvc.perform(get("/get-person?id=1"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.name").value("name1"))
         .andExpect(jsonPath("$.surname").value("surname1"))
         .andExpect(jsonPath("$.age").value("22"));
 
-    mvc.perform(get("/get-person?id=4")
-            .contentType(MediaType.APPLICATION_JSON))
+    mvc.perform(get("/get-person?id=4"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.name").value("name4"))
         .andExpect(jsonPath("$.surname").value("surname4"))
