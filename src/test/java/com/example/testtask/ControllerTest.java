@@ -35,9 +35,6 @@ public class ControllerTest {
     testPerson.setSurname("testName");
     testPerson.setBirthday(LocalDate.now().minus(testAge, ChronoUnit.YEARS).toString());
 
-//    Mockito.when(personsCrudRepository.findById(1))
-//        .thenReturn(Optional.of(testPerson));
-
     given(personsCrudRepository.findById(1)).willReturn(Optional.of(testPerson));
 
     mvc.perform(get("/get-person?id=1"))
